@@ -562,7 +562,7 @@ export const funFacts: FunFact[] = [
     emoji: "🌙",
     question: "A lesson I'll never forget?",
     answer:
-      "My father told me when I was just a child: these are nights that never die. So I chase memories, not just destinations.",
+      "तुम्हारी जीतने की क्षमता इस बात पर निर्भर करती है कि तुम कितनी बार प्रयास करते हो",
     color: "lavender",
   },
   {

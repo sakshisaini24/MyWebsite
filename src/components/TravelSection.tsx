@@ -148,7 +148,7 @@ export default function TravelSection() {
               <Sparkles className="h-5 w-5 text-rose" />
             </div>
             <p className="text-sm text-warm-brown/70">
-              The adventures, the adrenaline, and the dreams still on my list
+              The adventures, the adrenaline, and the dreams that keep me going! Becuase I got one life and I gotta do it all. 🦋
             </p>
           </div>
 

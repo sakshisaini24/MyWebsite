@@ -2,16 +2,55 @@
 
 import { useState, type FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, Sparkles } from "lucide-react";
+import { Copy, Check, Loader2, Mail, Phone, Send, Sparkles } from "lucide-react";
 import FadeIn from "./FadeIn";
 import SectionHeading from "./SectionHeading";
+import { personalInfo } from "@/lib/data";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [copied, setCopied] = useState(false);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function copyEmail() {
+    await navigator.clipboard.writeText(personalInfo.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  }
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          message: formData.get("message"),
+        }),
+      });
+
+      const data = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        throw new Error(data.error ?? "Something went wrong. Please try again.");
+      }
+
+      setSubmitted(true);
+      form.reset();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to send message.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -22,6 +61,62 @@ export default function Contact() {
           title="Let's Connect!"
           subtitle="I'd love to hear from you — whether it's about testing frameworks, travel itineraries, or social theories."
         />
+
+        <FadeIn delay={0.1}>
+          <div className="mb-6 grid gap-3 sm:grid-cols-2">
+            <a
+              href={`mailto:${personalInfo.email}`}
+              className="group flex items-center gap-3 rounded-2xl border border-peach/30 bg-white/70 p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-rose/40 hover:shadow-md"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-peach/30">
+                <Mail className="h-5 w-5 text-warm-brown" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <p className="text-xs font-medium text-warm-brown/60">Email</p>
+                <p className="truncate text-sm font-semibold text-foreground">
+                  {personalInfo.email}
+                </p>
+              </div>
+            </a>
+
+            <button
+              type="button"
+              onClick={copyEmail}
+              className="group flex items-center gap-3 rounded-2xl border border-dashed border-peach/40 bg-vanilla/50 p-4 text-left transition-all hover:border-rose/40 hover:bg-peach/10"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-rose/20">
+                {copied ? (
+                  <Check className="h-5 w-5 text-sage" />
+                ) : (
+                  <Copy className="h-5 w-5 text-warm-brown" />
+                )}
+              </div>
+              <div>
+                <p className="text-xs font-medium text-warm-brown/60">
+                  {copied ? "Copied!" : "Quick copy"}
+                </p>
+                <p className="text-sm font-semibold text-foreground">
+                  Tap to copy email
+                </p>
+              </div>
+            </button>
+
+            <a
+              href={personalInfo.phoneHref}
+              className="group flex items-center gap-3 rounded-2xl border border-peach/30 bg-white/70 p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-sage/40 hover:shadow-md sm:col-span-2"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sage/30">
+                <Phone className="h-5 w-5 text-warm-brown" />
+              </div>
+              <div>
+                <p className="text-xs font-medium text-warm-brown/60">Phone</p>
+                <p className="text-sm font-semibold text-foreground">
+                  {personalInfo.phone}
+                </p>
+              </div>
+            </a>
+          </div>
+        </FadeIn>
 
         <FadeIn delay={0.15}>
           <div className="relative overflow-hidden rounded-3xl border border-peach/30 bg-white/80 p-8 shadow-md backdrop-blur-sm">
@@ -49,8 +144,16 @@ export default function Contact() {
                       Message sent!
                     </p>
                     <p className="mt-2 text-sm text-warm-brown/70">
-                      Thanks for reaching out — I&apos;ll get back to you soon.
+                      Thanks for reaching out — I&apos;ll get back to you at{" "}
+                      {personalInfo.email} soon.
                     </p>
+                    <button
+                      type="button"
+                      onClick={() => setSubmitted(false)}
+                      className="mt-6 text-sm font-medium text-rose/80 underline-offset-2 hover:underline"
+                    >
+                      Send another message
+                    </button>
                   </motion.div>
                 ) : (
                   <motion.form
@@ -72,8 +175,9 @@ export default function Contact() {
                         name="name"
                         type="text"
                         required
+                        disabled={loading}
                         placeholder="What should I call you?"
-                        className="w-full rounded-2xl border border-peach/30 bg-vanilla/50 px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-warm-brown/40 focus:border-rose/50 focus:ring-2 focus:ring-rose/20"
+                        className="w-full rounded-2xl border border-peach/30 bg-vanilla/50 px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-warm-brown/40 focus:border-rose/50 focus:ring-2 focus:ring-rose/20 disabled:opacity-60"
                       />
                     </div>
 
@@ -89,8 +193,9 @@ export default function Contact() {
                         name="email"
                         type="email"
                         required
+                        disabled={loading}
                         placeholder="your@email.com"
-                        className="w-full rounded-2xl border border-peach/30 bg-vanilla/50 px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-warm-brown/40 focus:border-rose/50 focus:ring-2 focus:ring-rose/20"
+                        className="w-full rounded-2xl border border-peach/30 bg-vanilla/50 px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-warm-brown/40 focus:border-rose/50 focus:ring-2 focus:ring-rose/20 disabled:opacity-60"
                       />
                     </div>
 
@@ -105,18 +210,35 @@ export default function Contact() {
                         id="message"
                         name="message"
                         required
+                        disabled={loading}
                         rows={4}
                         placeholder="Let's chat about testing frameworks, travel itineraries, or social theories!"
-                        className="w-full resize-none rounded-2xl border border-peach/30 bg-vanilla/50 px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-warm-brown/40 focus:border-rose/50 focus:ring-2 focus:ring-rose/20"
+                        className="w-full resize-none rounded-2xl border border-peach/30 bg-vanilla/50 px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-warm-brown/40 focus:border-rose/50 focus:ring-2 focus:ring-rose/20 disabled:opacity-60"
                       />
                     </div>
 
+                    {error && (
+                      <p className="rounded-2xl bg-rose/15 px-4 py-3 text-sm text-warm-brown">
+                        {error}
+                      </p>
+                    )}
+
                     <button
                       type="submit"
-                      className="group flex w-full items-center justify-center gap-2 rounded-2xl bg-foreground px-6 py-3.5 text-sm font-semibold text-cream shadow-md transition-all hover:-translate-y-0.5 hover:bg-warm-brown hover:shadow-lg"
+                      disabled={loading}
+                      className="group flex w-full items-center justify-center gap-2 rounded-2xl bg-foreground px-6 py-3.5 text-sm font-semibold text-cream shadow-md transition-all hover:-translate-y-0.5 hover:bg-warm-brown hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
                     >
-                      Send Message
-                      <Send className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      {loading ? (
+                        <>
+                          <Loader2 className="h-4 w-4 animate-spin" />
+                          Sending…
+                        </>
+                      ) : (
+                        <>
+                          Send Message
+                          <Send className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        </>
+                      )}
                     </button>
                   </motion.form>
                 )}

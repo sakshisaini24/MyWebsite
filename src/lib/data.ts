@@ -5,6 +5,9 @@ export const personalInfo = {
   github: "https://github.com/sakshisaini24",
   linkedin: "https://www.linkedin.com/in/sakshisaini2482/",
   instagram: "https://www.instagram.com/sakshisaini_9/",
+  email: "sakshi.tech24@gmail.com",
+  phone: "+(91)-8195803965",
+  phoneHref: "tel:+918195803965",
   location: "Jalandhar, India",
 };
 

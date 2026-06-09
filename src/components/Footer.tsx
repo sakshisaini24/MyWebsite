@@ -1,4 +1,4 @@
-import { Code2, Share2, Camera, Heart } from "lucide-react";
+import { Code2, Share2, Camera, Mail, Phone } from "lucide-react";
 import { personalInfo } from "@/lib/data";
 
 export default function Footer() {
@@ -9,9 +9,25 @@ export default function Footer() {
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 text-center">
         <p className="max-w-md text-sm leading-relaxed text-warm-brown/80">
           Thanks for stopping by! Whether you&apos;re here for code, travel stories,
-          or curious conversations — I&apos;m glad you visited.{" "}
-          <Heart className="inline h-4 w-4 fill-rose text-rose" />
+          or curious conversations — I&apos;m glad you visited. ✨
         </p>
+
+        <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-warm-brown/80">
+          <a
+            href={`mailto:${personalInfo.email}`}
+            className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 shadow-sm transition-all hover:bg-peach/20"
+          >
+            <Mail className="h-3.5 w-3.5" />
+            {personalInfo.email}
+          </a>
+          <a
+            href={personalInfo.phoneHref}
+            className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 shadow-sm transition-all hover:bg-sage/20"
+          >
+            <Phone className="h-3.5 w-3.5" />
+            {personalInfo.phone}
+          </a>
+        </div>
 
         <div className="flex items-center gap-4">
           <a
@@ -42,11 +58,11 @@ export default function Footer() {
             <Camera className="h-5 w-5 text-warm-brown" />
           </a>
           <a
-            href="#contact"
-            aria-label="Contact"
+            href={`mailto:${personalInfo.email}`}
+            aria-label="Email"
             className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-sage/30 hover:shadow-md"
           >
-            <Heart className="h-5 w-5 text-warm-brown" />
+            <Mail className="h-5 w-5 text-warm-brown" />
           </a>
         </div>
 

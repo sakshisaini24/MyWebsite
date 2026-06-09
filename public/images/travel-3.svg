@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="280" viewBox="0 0 360 280">
+  <defs>
+    <linearGradient id="city" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#c9b8e0"/>
+      <stop offset="100%" style="stop-color:#f5c4a8"/>
+    </linearGradient>
+  </defs>
+  <rect width="360" height="280" fill="url(#city)" rx="4"/>
+  <rect x="40" y="120" width="50" height="120" fill="#fdf8f3" opacity="0.35" rx="2"/>
+  <rect x="110" y="80" width="60" height="160" fill="#fdf8f3" opacity="0.4" rx="2"/>
+  <rect x="190" y="100" width="45" height="140" fill="#fdf8f3" opacity="0.35" rx="2"/>
+  <rect x="255" y="60" width="55" height="180" fill="#fdf8f3" opacity="0.45" rx="2"/>
+  <text x="180" y="250" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#6b5b4e" opacity="0.6">travel-3.jpg</text>
+</svg>

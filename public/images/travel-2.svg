@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="280" viewBox="0 0 360 280">
+  <defs>
+    <linearGradient id="mountain" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#b5c9a8"/>
+      <stop offset="50%" style="stop-color:#c9b8e0"/>
+      <stop offset="100%" style="stop-color:#e8b4b8"/>
+    </linearGradient>
+  </defs>
+  <rect width="360" height="280" fill="url(#mountain)" rx="4"/>
+  <polygon points="60,220 150,100 240,220" fill="#fdf8f3" opacity="0.4"/>
+  <polygon points="180,220 270,80 360,220" fill="#fdf8f3" opacity="0.3"/>
+  <text x="180" y="250" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#6b5b4e" opacity="0.6">travel-2.jpg</text>
+</svg>

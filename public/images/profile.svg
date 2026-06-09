@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="480" viewBox="0 0 400 480">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5c4a8"/>
+      <stop offset="50%" style="stop-color:#e8b4b8"/>
+      <stop offset="100%" style="stop-color:#c9b8e0"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="480" fill="url(#bg)" rx="8"/>
+  <circle cx="200" cy="170" r="70" fill="#fdf8f3" opacity="0.9"/>
+  <ellipse cx="200" cy="340" rx="110" ry="90" fill="#fdf8f3" opacity="0.9"/>
+  <text x="200" y="440" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" fill="#6b5b4e" opacity="0.7">Drop your photo here</text>
+  <text x="200" y="462" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#6b5b4e" opacity="0.5">profile.jpg</text>
+</svg>

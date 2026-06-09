@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="280" viewBox="0 0 360 280">
+  <defs>
+    <linearGradient id="sunset" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5c4a8"/>
+      <stop offset="60%" style="stop-color:#e8b4b8"/>
+      <stop offset="100%" style="stop-color:#c9b8e0"/>
+    </linearGradient>
+  </defs>
+  <rect width="360" height="280" fill="url(#sunset)" rx="4"/>
+  <circle cx="280" cy="80" r="40" fill="#fdf8f3" opacity="0.6"/>
+  <path d="M0 200 Q90 170 180 200 T360 200 L360 280 L0 280 Z" fill="#b5c9a8" opacity="0.5"/>
+  <text x="180" y="250" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#6b5b4e" opacity="0.6">travel-1.jpg</text>
+</svg>

@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fdf8f3;
+  --foreground: #3d3429;
+  --cream: #fdf8f3;
+  --vanilla: #faf6ef;
+  --peach: #f5c4a8;
+  --rose: #e8b4b8;
+  --sage: #b5c9a8;
+  --lavender: #c9b8e0;
+  --warm-brown: #6b5b4e;
+  --soft-shadow: 0 4px 20px -2px rgba(107, 91, 78, 0.08);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-cream: var(--cream);
+  --color-vanilla: var(--vanilla);
+  --color-peach: var(--peach);
+  --color-rose: var(--rose);
+  --color-sage: var(--sage);
+  --color-lavender: var(--lavender);
+  --color-warm-brown: var(--warm-brown);
+  --font-sans: var(--font-nunito);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-nunito), system-ui, sans-serif;
+}
+
+::selection {
+  background-color: #f5c4a8;
+  color: #3d3429;
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #f5c4a8 transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #f5c4a8;
+  border-radius: 9999px;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(8deg);
+  }
+  75% {
+    transform: rotate(-8deg);
+  }
+}

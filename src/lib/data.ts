@@ -489,7 +489,7 @@ export const galleryPhotos: GalleryPhoto[] = [
   {
     src: "/images/bunjee-rishikesh.jpeg",
     alt: "Rishikesh by the Ganga",
-    caption: "Bunjee Jumping in Rishikesh - Heart pounding, wind rushing, and zero regrets.",
+    caption: "Bunjee Jumping in Rishikesh - Heart pounding, wind rushing, and zero regrets. 🤸‍♀️",
   },
   {
     src: "/images/goa.jpeg",
@@ -499,12 +499,12 @@ export const galleryPhotos: GalleryPhoto[] = [
   {
     src: "/images/neer-manali.jpeg",
     alt: "Manali by the Himalayas",
-    caption: "Neer Waterfall Manali 🌄",
+    caption: "Chasing Waterfalls 🌄",
   },
   {
     src: "/images/jodhpur.jpeg",
-    alt: "Jodhpur blue city",
-    caption: "Wandering the Blue City of Jodhpur 🏰",
+    alt: "Jodhpur Blue city",
+    caption: "Wandering in the Blue streets of Jodhpur 🏰",
   },
   {
     src: "/images/goa-2.jpeg",
@@ -515,6 +515,11 @@ export const galleryPhotos: GalleryPhoto[] = [
     src: "/images/rohtang-pass.jpeg",
     alt: "Manali by the Himalayas",
     caption: "Rohtang Pass Manali 🌄",
+  },
+  {
+    src: "/images/jaipur.jpeg",
+    alt: "Jaipur",
+    caption: "Tourist pro max 💕",
   }
 ];
 

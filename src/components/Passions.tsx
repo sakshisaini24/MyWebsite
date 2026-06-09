@@ -1,9 +1,9 @@
 "use client";
 
-import { BookOpen, GraduationCap } from "lucide-react";
+import { BookOpen, GraduationCap, Music2 } from "lucide-react";
 import FadeIn from "./FadeIn";
 import SectionHeading from "./SectionHeading";
-import { teachingHighlights } from "@/lib/data";
+import { teachingHighlights, hobbies } from "@/lib/data";
 
 export default function Passions() {
   return (
@@ -12,10 +12,10 @@ export default function Passions() {
         <SectionHeading
           emoji="💡"
           title="Beyond the Passport"
-          subtitle="Teaching with heart, and thinking deeply about how technology shapes the world we live in."
+          subtitle="Teaching with heart, dancing bhangra off the clock, and thinking deeply about how technology shapes the world."
         />
 
-        <div className="grid gap-8 lg:grid-cols-2">
+        <div className="grid gap-8 lg:grid-cols-3">
           <FadeIn delay={0.1}>
             <div className="flex h-full flex-col rounded-3xl border border-white/80 bg-gradient-to-br from-rose/15 via-white/80 to-peach/10 p-7 shadow-sm">
               <div className="mb-4 flex items-center gap-3">
@@ -54,11 +54,49 @@ export default function Passions() {
                     </span>
                   </div>
                 ))}
-                <p className="mt-auto rounded-2xl bg-peach/20 p-4 text-xs leading-relaxed text-warm-brown/75">
-                  There&apos;s nothing quite like the moment a concept finally
-                  clicks for a student — it&apos;s the same joy I get from
-                  shipping clean, well-tested code.
-                </p>
+              </div>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.15}>
+            <div className="flex h-full flex-col rounded-3xl border border-white/80 bg-gradient-to-br from-peach/20 via-white/80 to-rose/10 p-7 shadow-sm">
+              <div className="mb-4 flex items-center gap-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-peach/40">
+                  <Music2 className="h-6 w-6 text-warm-brown" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-foreground">
+                    Off the Clock 🎶
+                  </h3>
+                  <p className="text-sm text-warm-brown/70">
+                    Hobbies that keep me grounded & energized
+                  </p>
+                </div>
+              </div>
+
+              <p className="mb-5 text-sm leading-relaxed text-warm-brown/80">
+                Born in Jalandhar, Punjab — now building my life in Pune. When
+                I&apos;m not coding or exploring, you&apos;ll find me on the dance
+                floor or over a chess board.
+              </p>
+
+              <div className="flex flex-1 flex-col gap-4">
+                {hobbies.map((hobby) => (
+                  <div
+                    key={hobby.name}
+                    className="rounded-2xl bg-white/60 p-4 transition-all hover:shadow-sm"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="text-xl">{hobby.emoji}</span>
+                      <h4 className="text-sm font-bold text-foreground">
+                        {hobby.name}
+                      </h4>
+                    </div>
+                    <p className="mt-2 text-xs leading-relaxed text-warm-brown/75">
+                      {hobby.description}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </FadeIn>

@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Copy, Check, Loader2, Mail, Phone, Send, Sparkles } from "lucide-react";
+import { Loader2, Send, Sparkles } from "lucide-react";
 import FadeIn from "./FadeIn";
 import SectionHeading from "./SectionHeading";
 import { personalInfo } from "@/lib/data";
@@ -11,13 +11,6 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [copied, setCopied] = useState(false);
-
-  async function copyEmail() {
-    await navigator.clipboard.writeText(personalInfo.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  }
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -61,62 +54,6 @@ export default function Contact() {
           title="Let's Connect!"
           subtitle="I'd love to hear from you — whether it's about testing frameworks, travel itineraries, or social theories."
         />
-
-        <FadeIn delay={0.1}>
-          <div className="mb-6 grid gap-3 sm:grid-cols-2">
-            <a
-              href={`mailto:${personalInfo.email}`}
-              className="group flex items-center gap-3 rounded-2xl border border-peach/30 bg-white/70 p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-rose/40 hover:shadow-md"
-            >
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-peach/30">
-                <Mail className="h-5 w-5 text-warm-brown" />
-              </div>
-              <div className="min-w-0 flex-1">
-                <p className="text-xs font-medium text-warm-brown/60">Email</p>
-                <p className="truncate text-sm font-semibold text-foreground">
-                  {personalInfo.email}
-                </p>
-              </div>
-            </a>
-
-            <button
-              type="button"
-              onClick={copyEmail}
-              className="group flex items-center gap-3 rounded-2xl border border-dashed border-peach/40 bg-vanilla/50 p-4 text-left transition-all hover:border-rose/40 hover:bg-peach/10"
-            >
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-rose/20">
-                {copied ? (
-                  <Check className="h-5 w-5 text-sage" />
-                ) : (
-                  <Copy className="h-5 w-5 text-warm-brown" />
-                )}
-              </div>
-              <div>
-                <p className="text-xs font-medium text-warm-brown/60">
-                  {copied ? "Copied!" : "Quick copy"}
-                </p>
-                <p className="text-sm font-semibold text-foreground">
-                  Tap to copy email
-                </p>
-              </div>
-            </button>
-
-            <a
-              href={personalInfo.phoneHref}
-              className="group flex items-center gap-3 rounded-2xl border border-peach/30 bg-white/70 p-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-sage/40 hover:shadow-md sm:col-span-2"
-            >
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sage/30">
-                <Phone className="h-5 w-5 text-warm-brown" />
-              </div>
-              <div>
-                <p className="text-xs font-medium text-warm-brown/60">Phone</p>
-                <p className="text-sm font-semibold text-foreground">
-                  {personalInfo.phone}
-                </p>
-              </div>
-            </a>
-          </div>
-        </FadeIn>
 
         <FadeIn delay={0.15}>
           <div className="relative overflow-hidden rounded-3xl border border-peach/30 bg-white/80 p-8 shadow-md backdrop-blur-sm">
@@ -243,6 +180,22 @@ export default function Contact() {
                   </motion.form>
                 )}
               </AnimatePresence>
+
+              <p className="mt-6 border-t border-peach/15 pt-5 text-center text-sm text-warm-brown/70">
+                <a
+                  href={`mailto:${personalInfo.email}`}
+                  className="font-medium text-foreground hover:text-rose/80"
+                >
+                  {personalInfo.email}
+                </a>
+                <span className="mx-2 text-warm-brown/30">·</span>
+                <a
+                  href={personalInfo.phoneHref}
+                  className="font-medium text-foreground hover:text-rose/80"
+                >
+                  {personalInfo.phone}
+                </a>
+              </p>
             </div>
           </div>
         </FadeIn>

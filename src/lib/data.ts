@@ -8,8 +8,152 @@ export const personalInfo = {
   email: "sakshi.tech24@gmail.com",
   phone: "+(91)-8195803965",
   phoneHref: "tel:+918195803965",
-  location: "Jalandhar, India",
+  hometown: "Jalandhar, Punjab",
+  currentCity: "Pune, Maharashtra",
+  location: "Pune, Maharashtra",
 };
+
+export type Hobby = {
+  name: string;
+  emoji: string;
+  description: string;
+};
+
+export const hobbies: Hobby[] = [
+  {
+    name: "Bhangra",
+    emoji: "💃",
+    description:
+      "Dancing bhangra in my free time — energy, rhythm, and a little piece of Punjab wherever I am.",
+  },
+  {
+    name: "Chess",
+    emoji: "♟️",
+    description:
+      "Learning how to play chess — slowly building strategy, patience, and thinking three moves ahead.",
+  },
+];
+
+export type MapPin = {
+  id: string;
+  name: string;
+  emoji: string;
+  places: string[];
+  x: number;
+  y: number;
+  type: "home" | "current" | "visited" | "international";
+};
+
+export const mapPins: MapPin[] = [
+  {
+    id: "jalandhar",
+    name: "Jalandhar, Punjab",
+    emoji: "🏡",
+    places: ["Where I belong — roots, family & Punjabi warmth"],
+    x: 46,
+    y: 22,
+    type: "home",
+  },
+  {
+    id: "pune",
+    name: "Pune",
+    emoji: "📍",
+    places: ["Currently residing — building my career"],
+    x: 34,
+    y: 58,
+    type: "current",
+  },
+  {
+    id: "mumbai",
+    name: "Mumbai",
+    emoji: "🌆",
+    places: ["City lights & chaos"],
+    x: 28,
+    y: 54,
+    type: "visited",
+  },
+  {
+    id: "goa",
+    name: "Goa",
+    emoji: "🏖️",
+    places: ["Beaches & sunsets"],
+    x: 22,
+    y: 64,
+    type: "visited",
+  },
+  {
+    id: "gokarna",
+    name: "Gokarna",
+    emoji: "🌊",
+    places: ["Coastal trails"],
+    x: 24,
+    y: 67,
+    type: "visited",
+  },
+  {
+    id: "lonavala",
+    name: "Lonavala",
+    emoji: "⛰️",
+    places: ["Western Ghats treks"],
+    x: 33,
+    y: 55,
+    type: "visited",
+  },
+  {
+    id: "rishikesh",
+    name: "Rishikesh",
+    emoji: "🧘",
+    places: ["Yoga capital & the Ganges", "Bungee jumping!"],
+    x: 44,
+    y: 30,
+    type: "visited",
+  },
+  {
+    id: "jodhpur",
+    name: "Jodhpur",
+    emoji: "🏰",
+    places: ["The Blue City"],
+    x: 30,
+    y: 42,
+    type: "visited",
+  },
+  {
+    id: "jaipur",
+    name: "Jaipur",
+    emoji: "🏛️",
+    places: ["The Pink City"],
+    x: 32,
+    y: 38,
+    type: "visited",
+  },
+  {
+    id: "delhi",
+    name: "Delhi",
+    emoji: "🏛️",
+    places: ["The capital city"],
+    x: 40,
+    y: 32,
+    type: "visited",
+  },
+  {
+    id: "manali",
+    name: "Manali",
+    emoji: "🏔️",
+    places: ["Himalayan beauty", "Rohtang Pass", "Neer Waterfall"],
+    x: 48,
+    y: 18,
+    type: "visited",
+  },
+  {
+    id: "thailand",
+    name: "Thailand",
+    emoji: "🇹🇭",
+    places: ["Bangkok", "Krabi", "Phi Phi"],
+    x: 82,
+    y: 52,
+    type: "international",
+  },
+];
 
 export type Project = {
   title: string;
@@ -218,24 +362,6 @@ export const galleryPhotos: GalleryPhoto[] = [
     alt: "Manali by the Himalayas",
     caption: "Rohtang Pass Manali 🌄",
   }
-];
-
-export const visitedPlaces = [
-  {
-    name: "Thailand",
-    places: ["Bangkok", "Krabi", "Phi Phi"],
-    emoji: "🇹🇭",
-  },
-  { name: "Goa", places: ["Beaches & sunsets"], emoji: "🏖️" },
-  { name: "Gokarna", places: ["Coastal trails"], emoji: "🌊" },
-  { name: "Mumbai", places: ["City lights & chaos"], emoji: "🌆" },
-  { name: "Jodhpur", places: ["The Blue City"], emoji: "🏰" },
-  { name: "Jaipur", places: ["The Pink City"], emoji: "🏛️" },
-  { name: "Delhi", places: ["The Capital City"], emoji: "🏛️" },
-  { name: "Ahmedabad", places: ["The Textile City"], emoji: "🏛️" },
-  { name: "Manali", places: ["The Himalayan beauty"], emoji: "🏛️" },
-  { name: "Rishikesh", places: ["Yoga capital & the Ganges"], emoji: "🧘" },
-  { name: "Lonavala", places: ["Western Ghats treks"], emoji: "⛰️" },
 ];
 
 export type FunFact = {

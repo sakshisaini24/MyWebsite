@@ -24,10 +24,15 @@ export default function Hero() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="space-y-6"
         >
-          <span className="inline-flex items-center gap-2 rounded-full bg-peach/30 px-4 py-1.5 text-sm font-medium text-warm-brown">
-            <MapPin className="h-4 w-4" />
-            Welcome to my corner of the internet
-          </span>
+          <div className="flex flex-wrap gap-2">
+            <span className="inline-flex items-center gap-2 rounded-full bg-peach/30 px-4 py-1.5 text-sm font-medium text-warm-brown">
+              <MapPin className="h-4 w-4" />
+              From {personalInfo.hometown}
+            </span>
+            <span className="inline-flex items-center gap-2 rounded-full bg-sage/25 px-4 py-1.5 text-sm font-medium text-warm-brown">
+              📍 Based in {personalInfo.currentCity}
+            </span>
+          </div>
 
           <h1 className="text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             Hi, I&apos;m {personalInfo.name}!{" "}

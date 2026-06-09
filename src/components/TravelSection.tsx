@@ -3,18 +3,13 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Globe, Sparkles } from "lucide-react";
+import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 import FadeIn from "./FadeIn";
-import {
-  galleryPhotos,
-  visitedPlaces,
-  funFacts,
-  funFactColors,
-} from "@/lib/data";
+import TravelMap from "./TravelMap";
+import { galleryPhotos, funFacts, funFactColors } from "@/lib/data";
 
 export default function TravelSection() {
   const [current, setCurrent] = useState(0);
-  const [activePlace, setActivePlace] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const thumbStripRef = useRef<HTMLDivElement>(null);
 
@@ -182,49 +177,7 @@ export default function TravelSection() {
           </div>
         </FadeIn>
 
-        <FadeIn delay={0.15} className="mt-16">
-          <div className="rounded-3xl border border-white/80 bg-white/60 p-6 shadow-sm backdrop-blur-sm sm:p-8">
-            <div className="mb-5 flex items-center justify-center gap-2 text-sm font-semibold text-warm-brown">
-              <Globe className="h-4 w-4 text-sage" />
-              Places I&apos;ve Wandered
-            </div>
-
-            <div className="mb-5 flex flex-wrap justify-center gap-2">
-              {visitedPlaces.map((place, index) => (
-                <button
-                  key={place.name}
-                  onClick={() => setActivePlace(index)}
-                  className={`rounded-full px-3 py-1.5 text-xs font-medium transition-all sm:text-sm ${
-                    activePlace === index
-                      ? "bg-foreground text-cream shadow-sm"
-                      : "bg-vanilla text-warm-brown hover:bg-peach/30"
-                  }`}
-                >
-                  {place.emoji} {place.name}
-                </button>
-              ))}
-            </div>
-
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activePlace}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.25 }}
-                className="mx-auto max-w-md rounded-2xl bg-vanilla/80 p-4 text-center"
-              >
-                <p className="text-sm font-medium text-foreground">
-                  {visitedPlaces[activePlace].emoji}{" "}
-                  {visitedPlaces[activePlace].name}
-                </p>
-                <p className="mt-1 text-xs text-warm-brown/70 sm:text-sm">
-                  {visitedPlaces[activePlace].places.join(" · ")}
-                </p>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </FadeIn>
+        <TravelMap />
 
         <FadeIn delay={0.2} className="mt-16">
           <div className="mb-8 text-center">

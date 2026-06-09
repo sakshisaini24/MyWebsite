@@ -24,19 +24,19 @@ export const hobbies: Hobby[] = [
     name: "Bhangra",
     emoji: "💃",
     description:
-      "Dancing bhangra in my free time — energy, rhythm, and a little piece of Punjab wherever I am.",
+      "Dancing bhangra in my free time; energy, rhythm, and a little piece of home wherever I am.",
   },
   {
     name: "Chess",
     emoji: "♟️",
     description:
-      "Learning how to play chess — slowly building strategy, patience, and thinking three moves ahead.",
+      "Learning how to play chess; slowly building strategy, patience, and thinking three moves ahead. Although, I still suck at it.",
   },
   {
     name: "Animals & Pets",
     emoji: "🐾",
     description:
-      "A deep love for animals and pets — whether it's a friendly stray on the street or cuddles with a furry friend at home, they always brighten my day.",
+      "A deep love for animals and pets; whether it's a friendly stray on the street or cuddles with my little Simba.",
   },
 ];
 
@@ -623,7 +623,7 @@ export const funFacts: FunFact[] = [
     emoji: "🗺️",
     question: "What am I planning next?",
     answer:
-      "More solo adventures — maybe Switzerland or Japan, another scuba trip, and every trek I can squeeze in.",
+      "More solo adventures — maybe Greece or Italy, another scuba trip, a sky dive and every trek I can squeeze in.",
     color: "peach",
   },
   {
@@ -645,7 +645,6 @@ export const funFacts: FunFact[] = [
 export const teachingHighlights = [
   { subject: "Physics", emoji: "⚛️" },
   { subject: "Mathematics", emoji: "📐" },
-  { subject: "Chemistry", emoji: "🧪" },
 ];
 
 export const tagColors = {

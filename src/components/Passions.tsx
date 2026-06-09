@@ -109,35 +109,34 @@ export default function Passions() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-foreground">
-                    Social Sciences & Impact 📚
+                    Social Sciences & Personal Finances 📚
                   </h3>
                   <p className="text-sm text-warm-brown/70">
-                    Understanding people, societies, and systems
+                    Understanding people, societies, systems and how finances work
                   </p>
                 </div>
               </div>
 
               <p className="mb-6 text-sm leading-relaxed text-warm-brown/80">
-                Beyond writing code, I&apos;m fascinated by how societies function —
-                from behavioral economics to legal frameworks. I believe technology
-                should serve communities, not just corporations.
+                Beyond writing code, I&apos;m fascinated by how societies function,
+                from economics to geopolitics. I also believe in the fact that every human should know how to manage their money. So, I am learning and unlearning the same everyday!
               </p>
 
               <div className="flex flex-1 flex-col gap-4">
                 {[
                   {
-                    title: "Human Behavior",
-                    desc: "How people make decisions, form habits, and interact with technology in their daily lives.",
+                    title: "Personal Finance",
+                    desc: "Understanding how to manage my money, invest, and plan for the future.",
                     color: "bg-rose/20",
                   },
                   {
-                    title: "Community & Legal Tech",
-                    desc: "Exploring how software can improve access to justice, civic engagement, and social services.",
+                    title: "Sociology and how it works",
+                    desc: "Exploring how societies function and how people interact with each other, which made me pursue a Masters degree in Sociology from IGNOU!",
                     color: "bg-lavender/20",
                   },
                   {
-                    title: "Ethical Innovation",
-                    desc: "Bridging the gap between what we can build and what we should build for society's wellbeing.",
+                    title: "Diplomacy and Geopolitics",
+                    desc: "How geopolitics impact us?",
                     color: "bg-sage/20",
                   },
                 ].map((topic) => (

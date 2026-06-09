@@ -94,6 +94,55 @@ export const experience: Experience[] = [
   },
 ];
 
+export type Credential = {
+  issuer: string;
+  title: string;
+  type: "achievement" | "certification";
+  emoji: string;
+  color: "peach" | "rose" | "sage" | "lavender";
+  date?: string;
+};
+
+export const credentials: Credential[] = [
+  {
+    issuer: "Myridius",
+    title: "Genius Hacks Hackathon — Winner",
+    type: "achievement",
+    emoji: "🏆",
+    color: "rose",
+    date: "June 2026",
+  },
+  {
+    issuer: "Myridius",
+    title: "Employee of the Month",
+    type: "achievement",
+    emoji: "⭐",
+    color: "peach",
+    date: "October 2025",
+  },
+  {
+    issuer: "Salesforce",
+    title: "Certified Administrator",
+    type: "certification",
+    emoji: "☁️",
+    color: "sage",
+  },
+  {
+    issuer: "ServiceNow",
+    title: "Certified Administrator",
+    type: "certification",
+    emoji: "⚙️",
+    color: "lavender",
+  },
+  {
+    issuer: "Salesforce",
+    title: "AI Specialist",
+    type: "certification",
+    emoji: "🤖",
+    color: "sage",
+  },
+];
+
 export type GalleryPhoto = {
   src: string;
   alt: string;

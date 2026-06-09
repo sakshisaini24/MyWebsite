@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
 import Projects from "@/components/Projects";
+import Credentials from "@/components/Credentials";
 import TravelSection from "@/components/TravelSection";
 import Passions from "@/components/Passions";
 import Contact from "@/components/Contact";
@@ -15,6 +16,7 @@ export default function Home() {
         <Hero />
         <ExperienceTimeline />
         <Projects />
+        <Credentials />
         <TravelSection />
         <Passions />
         <Contact />

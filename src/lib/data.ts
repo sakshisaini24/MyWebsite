@@ -327,6 +327,10 @@ export const skillGroups: SkillGroup[] = [
 export type Project = {
   title: string;
   description: string;
+  badge: string;
+  hook: string;
+  details: string[];
+  techHighlights: string[];
   tags: { label: string; color: "peach" | "rose" | "sage" | "lavender" }[];
   githubUrl?: string;
   liveUrl?: string;
@@ -337,33 +341,82 @@ export const projects: Project[] = [
     title: "RiskRadar AI",
     description:
       "Escalation intelligence for insurance claims — predicting when a dispute will escalate using ML, vector search, and citation-grounded GenAI briefs.",
+    badge: "🏆 Genius Hacks Hackathon Winner",
+    hook: "The project that turned a hackathon pitch into production-grade AI.",
+    details: [
+      "RiskRadar was born at Myridius's Genius Hacks hackathon — and it won. The challenge: spot insurance claim escalations before they explode, and give adjusters answers they can actually trust.",
+      "I built a full ML pipeline with XGBoost ensembles, SHAP explainability, and a time-to-escalation regressor (±37 days MAE). A sentence-transformer vector index surfaces the 5 most similar past claims — legal RAG, but make it defensible.",
+      "GenAI briefs are citation-grounded via Indian Kanoon & CourtListener APIs — temperature=0, allowlist-only precedents, and a validator that flags hallucinated case law before it reaches the UI.",
+      "From ideation to expansion: FastAPI backend, Next.js triage dashboard, fairness audits, drift monitoring, and Salesforce integration to bring intelligence where adjusters already work.",
+    ],
+    techHighlights: [
+      "Predictive ML — XGBoost, isotonic calibration, SHAP",
+      "Legal RAG — vector embeddings, cosine NN search, citation grounding",
+      "GenAI — Groq Llama 3.1 & Gemini 2.5 Flash at temp=0",
+      "Stack — Python, FastAPI, Next.js 16, SQLite, Docker",
+      "Salesforce integration & full hackathon-to-product expansion",
+    ],
     tags: [
       { label: "Python", color: "sage" },
       { label: "GenAI", color: "lavender" },
       { label: "ML", color: "peach" },
       { label: "Vector DB", color: "rose" },
       { label: "RAG", color: "lavender" },
+      { label: "Salesforce", color: "sage" },
     ],
     githubUrl: "https://github.com/sakshisaini24/RiskRadar",
   },
   {
-    title: "Corporate Time Manager Tool",
+    title: "Corporate Time Manager AI",
     description:
       "A Salesforce-integrated timesheet manager with GenAI-powered chatbot assistance, built to streamline corporate time tracking and reporting.",
+    badge: "🚀 First dive into real-world GenAI",
+    hook: "Where I first made RAG and GenAI actually useful — not just a demo.",
+    details: [
+      "My first real attempt at building a corporate timesheet manager — and honestly, the project that kicked off my love affair with RAG and GenAI in production.",
+      "Integrated directly with Salesforce so employees log time where they already work. No swivel-chairing between tools — data flows from SF objects into a Python backend that handles generation, validation, and reporting.",
+      "The star? A LangChain-powered chatbot that answers timesheet questions in plain English — policy lookups, entry guidance, and smart nudges before submission deadlines hit.",
+      "This was my introduction to making AI practical: prompt design, retrieval over company docs, and learning what breaks when real users (not just testers) start chatting.",
+    ],
+    techHighlights: [
+      "Python backend with Salesforce API integration",
+      "LangChain RAG pipeline for policy-aware chatbot",
+      "GenAI for real-time user assistance & timesheet generation",
+      "PDF reporting with custom fonts & branded output",
+      "Deployed on Heroku with secure token auth",
+    ],
     tags: [
       { label: "Python", color: "sage" },
       { label: "Salesforce", color: "peach" },
       { label: "GenAI", color: "lavender" },
       { label: "LangChain", color: "rose" },
+      { label: "RAG", color: "lavender" },
     ],
     githubUrl: "https://github.com/sakshisaini24/Timesheet",
   },
   {
-    title: "E2E Test Automation Suite",
+    title: "Automation Test Suites",
     description:
-      "Salesforce Financial Services Cloud test automation using Cypress — covering end-to-end flows with reusable specs and headless CI runs.",
+      "End-to-end Salesforce test automation with Cypress & Playwright — built, owned, and taught across the team.",
+    badge: "🔍 QA ownership & mentorship",
+    hook: "Not just writing tests — building frameworks and teaching others to ship with confidence.",
+    details: [
+      "This isn't a side project — it's how I took ownership of quality across Salesforce Financial Services Cloud, Education Cloud, and Service Cloud.",
+      "Built reusable Cypress suites with custom commands, environment configs, and headless CI runs. Expanded into Playwright for cross-browser coverage and explored MCP integrations for smarter, AI-assisted test generation.",
+      "The part I'm proudest of: teaching automation to juniors, peers, and seniors alike. From writing their first spec to reviewing PRs and setting CI standards — I believe good QA is a team sport.",
+      "Every flow I automate, I own end-to-end: test design, flaky-test triage, reporting, and making sure releases ship without that 2 AM panic.",
+    ],
+    techHighlights: [
+      "Cypress — custom commands, Page Object patterns, headless CI",
+      "Playwright — cross-browser E2E expansion",
+      "MCP — AI-assisted test exploration & generation",
+      "Salesforce FSC, Education Cloud & Service Cloud coverage",
+      "Mentorship — onboarding juniors & upskilling seniors",
+    ],
     tags: [
       { label: "Cypress", color: "sage" },
+      { label: "Playwright", color: "peach" },
+      { label: "MCP", color: "lavender" },
       { label: "JavaScript", color: "peach" },
       { label: "Salesforce", color: "lavender" },
     ],

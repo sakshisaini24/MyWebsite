@@ -77,7 +77,7 @@ export default function Passions() {
               <p className="mb-5 text-sm leading-relaxed text-warm-brown/80">
                 Born in Jalandhar, Punjab — now building my life in Pune. When
                 I&apos;m not coding or exploring, you&apos;ll find me on the dance
-                floor or over a chess board.
+                floor, over a chess board, or spending time with animals and pets.
               </p>
 
               <div className="flex flex-1 flex-col gap-4">

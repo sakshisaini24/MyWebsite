@@ -32,6 +32,12 @@ export const hobbies: Hobby[] = [
     description:
       "Learning how to play chess — slowly building strategy, patience, and thinking three moves ahead.",
   },
+  {
+    name: "Animals & Pets",
+    emoji: "🐾",
+    description:
+      "A deep love for animals and pets — whether it's a friendly stray on the street or cuddles with a furry friend at home, they always brighten my day.",
+  },
 ];
 
 export type MapPin = {
@@ -70,6 +76,15 @@ export const mapPins: MapPin[] = [
     places: ["The City Beautiful", "Planned gardens & calm"],
     lat: 30.733,
     lng: 76.779,
+    type: "visited",
+  },
+  {
+    id: "katra",
+    name: "Katra",
+    emoji: "🙏",
+    places: ["Gateway to Vaishno Devi", "Jammu & Kashmir"],
+    lat: 32.992,
+    lng: 74.932,
     type: "visited",
   },
   {

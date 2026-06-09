@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
+import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Credentials from "@/components/Credentials";
 import TravelSection from "@/components/TravelSection";
@@ -15,6 +16,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <ExperienceTimeline />
+        <Skills />
         <Projects />
         <Credentials />
         <TravelSection />

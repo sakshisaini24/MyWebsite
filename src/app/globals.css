@@ -55,6 +55,21 @@ body {
   border-radius: 9999px;
 }
 
+.travel-map .leaflet-container {
+  background: #faf6ef;
+  font-family: var(--font-nunito), system-ui, sans-serif;
+}
+
+.travel-map .leaflet-popup-content-wrapper {
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(107, 91, 78, 0.12);
+}
+
+.travel-map .leaflet-popup-content {
+  margin: 12px 14px;
+  line-height: 1.4;
+}
+
 @keyframes wiggle {
   0%,
   100% {

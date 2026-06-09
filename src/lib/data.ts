@@ -39,8 +39,8 @@ export type MapPin = {
   name: string;
   emoji: string;
   places: string[];
-  x: number;
-  y: number;
+  lat: number;
+  lng: number;
   type: "home" | "current" | "visited" | "international";
 };
 
@@ -50,8 +50,8 @@ export const mapPins: MapPin[] = [
     name: "Jalandhar, Punjab",
     emoji: "🏡",
     places: ["Where I belong — roots, family & Punjabi warmth"],
-    x: 46,
-    y: 22,
+    lat: 31.326,
+    lng: 75.576,
     type: "home",
   },
   {
@@ -59,8 +59,8 @@ export const mapPins: MapPin[] = [
     name: "Pune",
     emoji: "📍",
     places: ["Currently residing — building my career"],
-    x: 34,
-    y: 58,
+    lat: 18.52,
+    lng: 73.857,
     type: "current",
   },
   {
@@ -68,8 +68,8 @@ export const mapPins: MapPin[] = [
     name: "Mumbai",
     emoji: "🌆",
     places: ["City lights & chaos"],
-    x: 28,
-    y: 54,
+    lat: 19.076,
+    lng: 72.877,
     type: "visited",
   },
   {
@@ -77,8 +77,8 @@ export const mapPins: MapPin[] = [
     name: "Goa",
     emoji: "🏖️",
     places: ["Beaches & sunsets"],
-    x: 22,
-    y: 64,
+    lat: 15.299,
+    lng: 74.124,
     type: "visited",
   },
   {
@@ -86,8 +86,8 @@ export const mapPins: MapPin[] = [
     name: "Gokarna",
     emoji: "🌊",
     places: ["Coastal trails"],
-    x: 24,
-    y: 67,
+    lat: 14.547,
+    lng: 74.319,
     type: "visited",
   },
   {
@@ -95,8 +95,8 @@ export const mapPins: MapPin[] = [
     name: "Lonavala",
     emoji: "⛰️",
     places: ["Western Ghats treks"],
-    x: 33,
-    y: 55,
+    lat: 18.751,
+    lng: 73.407,
     type: "visited",
   },
   {
@@ -104,8 +104,8 @@ export const mapPins: MapPin[] = [
     name: "Rishikesh",
     emoji: "🧘",
     places: ["Yoga capital & the Ganges", "Bungee jumping!"],
-    x: 44,
-    y: 30,
+    lat: 30.087,
+    lng: 78.268,
     type: "visited",
   },
   {
@@ -113,8 +113,8 @@ export const mapPins: MapPin[] = [
     name: "Jodhpur",
     emoji: "🏰",
     places: ["The Blue City"],
-    x: 30,
-    y: 42,
+    lat: 26.239,
+    lng: 73.024,
     type: "visited",
   },
   {
@@ -122,8 +122,8 @@ export const mapPins: MapPin[] = [
     name: "Jaipur",
     emoji: "🏛️",
     places: ["The Pink City"],
-    x: 32,
-    y: 38,
+    lat: 26.912,
+    lng: 75.787,
     type: "visited",
   },
   {
@@ -131,8 +131,8 @@ export const mapPins: MapPin[] = [
     name: "Delhi",
     emoji: "🏛️",
     places: ["The capital city"],
-    x: 40,
-    y: 32,
+    lat: 28.704,
+    lng: 77.102,
     type: "visited",
   },
   {
@@ -140,8 +140,8 @@ export const mapPins: MapPin[] = [
     name: "Manali",
     emoji: "🏔️",
     places: ["Himalayan beauty", "Rohtang Pass", "Neer Waterfall"],
-    x: 48,
-    y: 18,
+    lat: 32.243,
+    lng: 77.189,
     type: "visited",
   },
   {
@@ -149,9 +149,73 @@ export const mapPins: MapPin[] = [
     name: "Thailand",
     emoji: "🇹🇭",
     places: ["Bangkok", "Krabi", "Phi Phi"],
-    x: 82,
-    y: 52,
+    lat: 13.756,
+    lng: 100.502,
     type: "international",
+  },
+];
+
+export type SkillGroup = {
+  title: string;
+  emoji: string;
+  color: "peach" | "rose" | "sage" | "lavender";
+  skills: string[];
+};
+
+export const skillGroups: SkillGroup[] = [
+  {
+    title: "Salesforce",
+    emoji: "☁️",
+    color: "sage",
+    skills: [
+      "Administration",
+      "Development",
+      "Flows",
+      "Education Cloud",
+      "Service Cloud",
+      "Deployments",
+    ],
+  },
+  {
+    title: "QA & Automation",
+    emoji: "🔍",
+    color: "peach",
+    skills: [
+      "Cypress",
+      "Robot Framework",
+      "E2E Testing",
+      "CI/CD",
+      "Test Strategy",
+      "Salesforce Testing",
+    ],
+  },
+  {
+    title: "AI & Data",
+    emoji: "🤖",
+    color: "lavender",
+    skills: [
+      "GenAI",
+      "RAG",
+      "LangChain",
+      "Machine Learning",
+      "Vector DB",
+      "XGBoost",
+    ],
+  },
+  {
+    title: "Languages & Tools",
+    emoji: "🛠️",
+    color: "rose",
+    skills: [
+      "Python",
+      "JavaScript",
+      "Apex",
+      "React",
+      "Next.js",
+      "Git",
+      "Docker",
+      "FastAPI",
+    ],
   },
 ];
 

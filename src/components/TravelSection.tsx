@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
@@ -11,7 +11,6 @@ import { galleryPhotos, funFacts, funFactColors } from "@/lib/data";
 export default function TravelSection() {
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const thumbStripRef = useRef<HTMLDivElement>(null);
 
   const total = galleryPhotos.length;
 
@@ -36,17 +35,6 @@ export default function TravelSection() {
     const timer = setInterval(next, 10000);
     return () => clearInterval(timer);
   }, [next, isPaused]);
-
-  useEffect(() => {
-    const strip = thumbStripRef.current;
-    if (!strip) return;
-    const thumb = strip.children[current] as HTMLElement | undefined;
-    if (!thumb) return;
-
-    const scrollLeft =
-      thumb.offsetLeft - (strip.clientWidth - thumb.clientWidth) / 2;
-    strip.scrollTo({ left: scrollLeft, behavior: "smooth" });
-  }, [current]);
 
   const slideVariants = {
     enter: { opacity: 0 },
@@ -143,35 +131,6 @@ export default function TravelSection() {
                       : "h-2 w-2 bg-peach/40 hover:bg-peach/60"
                   }`}
                 />
-              ))}
-            </div>
-
-            <div
-              ref={thumbStripRef}
-              className="mt-5 flex justify-center gap-2.5 overflow-x-auto px-2 pb-2 scrollbar-thin snap-x"
-            >
-              {galleryPhotos.map((photo, index) => (
-                <button
-                  key={`thumb-${index}`}
-                  onClick={() => goTo(index)}
-                  aria-label={`View photo ${index + 1}`}
-                  aria-current={index === current}
-                  className={`shrink-0 snap-center rounded-sm bg-white p-1 shadow-sm transition-all ${
-                    index === current
-                      ? "-translate-y-1 ring-2 ring-rose/40"
-                      : "opacity-55 hover:opacity-90"
-                  }`}
-                >
-                  <div className="relative h-10 w-14 overflow-hidden rounded-sm sm:h-11 sm:w-16">
-                    <Image
-                      src={photo.src}
-                      alt=""
-                      fill
-                      className="object-cover"
-                      sizes="64px"
-                    />
-                  </div>
-                </button>
               ))}
             </div>
           </div>

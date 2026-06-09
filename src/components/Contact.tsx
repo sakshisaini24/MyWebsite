@@ -7,6 +7,18 @@ import FadeIn from "./FadeIn";
 import SectionHeading from "./SectionHeading";
 import { personalInfo } from "@/lib/data";
 
+const WEB3FORMS_URL = "https://api.web3forms.com/submit";
+
+async function parseJsonSafe(response: Response) {
+  const text = await response.text();
+  if (!text) return {};
+  try {
+    return JSON.parse(text) as { success?: boolean; message?: string };
+  } catch {
+    return {};
+  }
+}
+
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -17,30 +29,52 @@ export default function Contact() {
     setLoading(true);
     setError("");
 
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      setError(
+        `Form is not configured yet. Please email me directly at ${personalInfo.email}`,
+      );
+      setLoading(false);
+      return;
+    }
+
     const form = e.currentTarget;
     const formData = new FormData(form);
+    const name = String(formData.get("name") ?? "").trim();
+    const email = String(formData.get("email") ?? "").trim();
+    const message = String(formData.get("message") ?? "").trim();
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch(WEB3FORMS_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          name: formData.get("name"),
-          email: formData.get("email"),
-          message: formData.get("message"),
+          access_key: accessKey,
+          name,
+          email,
+          message,
+          subject: `Portfolio message from ${name}`,
+          from_name: "Sakshi Saini Portfolio",
         }),
       });
 
-      const data = (await response.json()) as { error?: string };
+      const data = await parseJsonSafe(response);
 
-      if (!response.ok) {
-        throw new Error(data.error ?? "Something went wrong. Please try again.");
+      if (!response.ok || !data.success) {
+        throw new Error(
+          data.message ??
+            "Something went wrong. Please try again or email me directly.",
+        );
       }
 
       setSubmitted(true);
       form.reset();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to send message.");
+      setError(
+        err instanceof Error
+          ? err.message
+          : `Failed to send. Please email me at ${personalInfo.email}`,
+      );
     } finally {
       setLoading(false);
     }

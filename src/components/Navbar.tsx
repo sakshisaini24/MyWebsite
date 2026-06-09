@@ -1,13 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Home, Briefcase, Plane, Mail } from "lucide-react";
+import { Home, Briefcase, Plane } from "lucide-react";
 
 const links = [
   { href: "#home", label: "Home", icon: Home },
   { href: "#experience", label: "Experience & Projects", icon: Briefcase },
   { href: "#travel", label: "Travel & Perspectives", icon: Plane },
-  { href: "#contact", label: "Contact", icon: Mail },
 ];
 
 export default function Navbar() {
